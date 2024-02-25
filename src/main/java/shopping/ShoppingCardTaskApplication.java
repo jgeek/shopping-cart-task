@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-//@EntityScan("shopping.entity")
-//@EnableJpaRepositories
 public class ShoppingCardTaskApplication {
 
 	public static void main(String[] args) {
