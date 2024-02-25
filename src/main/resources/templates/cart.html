@@ -1,0 +1,42 @@
+<!-- tag::all[] -->
+<!-- tag::head[] -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Current Cart</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+
+<body>
+<h1>Your Current Cart!</h1>
+<form method="POST" th:action="@{/cart/remove}">
+    <div>
+        <table th:if="${cart.items.size() >0}">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+            <tr th:each="item : ${cart.items}">
+
+                <td><span th:text="${item.name}"> </span></td>
+                <td><span th:text="${item.price}"> </span></td>
+                <td>
+                    <button type="submit" name="remove" th:value="${item.id}">Remove</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+<br/>
+<form method="post" th:action="@{/cart/confirm}" th:if="${cart.items.size() >0}">
+    <button type="submit">Confirm</button>
+</form>
+
+<span th:if="${cart.items.size() == 0}">*** Cart is empty ***</span>
+
+<br/>
+<a href="products" style="font-size: 20px"> List of Products</a>
+
+</body>
+</html>

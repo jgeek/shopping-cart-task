@@ -1,0 +1,39 @@
+<!-- tag::all[] -->
+<!-- tag::head[] -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Taco Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+
+<body>
+
+<h1>Submit Your Order!</h1>
+
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td><span th:text="${product.name}"/></td>
+            <td><span th:text="${product.price}"/></td>
+            <td>
+                <form method="POST" th:action="@{/cart/add}">
+                    <button type="submit" name="add" th:value="${product.id}">Add to cart</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<br/>
+<a href="cart" style="font-size: 20px"> Your Cart</a><br/>
+<a href="orders" style="font-size: 20px"> Your Orders</a>
+</body>
+</html>
+<!-- end::all[] -->

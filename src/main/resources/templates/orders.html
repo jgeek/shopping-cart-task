@@ -1,0 +1,44 @@
+<!-- tag::all[] -->
+<!-- tag::head[] -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Orders</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+
+<body>
+<h1>Your Orders!</h1>
+<form>
+    <div class="grid">
+        <table>
+            <tr>
+                <th>Index</th>
+                <th>Date</th>
+                <th>Items</th>
+            </tr>
+            <tr th:each="order : ${orders}">
+
+                <td><span th:text="${order.id}"> </span></td>
+                <td><span th:text="${order.createdAt}"> </span></td>
+                <td>
+                    <ul>
+                        <li th:each="item : ${order.cart.items}">
+                            <span th:text="${item.name}"></span> - <span th:text="${item.price}"></span><br/>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</form>
+<br/>
+
+<a href="cart" style="font-size: 20px"> Your Cart</a>
+<br/>
+<a href="products" style="font-size: 20px"> Submit Another Order</a>
+</body>
+</html>
