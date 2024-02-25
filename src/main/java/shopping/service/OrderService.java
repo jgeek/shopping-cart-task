@@ -3,10 +3,8 @@ package shopping.service;
 import org.springframework.stereotype.Service;
 import shopping.entity.Cart;
 import shopping.entity.Order;
-import shopping.entity.Product;
 import shopping.repository.OrderRepository;
 import shopping.repository.ProductRepository;
-import shopping.web.SelectedProducts;
 
 import java.util.Date;
 
