@@ -36,6 +36,7 @@ public class CartService {
         return cart;
     }
 
+    @Transactional
     public void addToCurrentCart(String username, Long productId) {
         Cart cart = cartRepository.findCurrentCartOfUser(username);
         if (cart == null) {
