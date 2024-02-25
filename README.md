@@ -1,1 +1,1 @@
-# spring-web-mvc-sample
+# simple shopping cart implemented with spring web mvc 
